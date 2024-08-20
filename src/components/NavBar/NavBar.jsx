@@ -1,0 +1,37 @@
+import { CartWidget } from "./components/CartWidget"
+
+
+export const NavBar = () =>{
+    return <>
+    <nav className="navbar navbar-expand-lg bg-white fixed-top">
+            <div className="container-fluid">
+                
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <a className="nav-link" aria-current="page" href="#">Deco</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Cocina</a>
+                        </li>
+                        <a className="navbar-brand">Ceramic Lovers Club</a>
+                        <li cclassName="nav-item">
+                            <a className="nav-link" href="#">Sobre nosotros</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Contacto</a>
+                        </li>
+                        </ul>
+                        
+<CartWidget/>
+
+                </div>
+            </div>
+        </nav>
+    </>
+}

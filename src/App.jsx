@@ -7,9 +7,8 @@ return(
 <>
 <NavBar/>
 
-<div style={{ paddingTop: '50px' }}>
 <ItemListContainer titulo="Bienvenidos amantes de la ceramica" presentacion="Este nuevo concepto está creado para personas creativas y amantes de las cosas pequeñas." img={PresentacionImg}/>
-</div>
+
 </>
 
 )

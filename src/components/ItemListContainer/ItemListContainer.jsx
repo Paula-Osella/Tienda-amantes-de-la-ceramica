@@ -1,12 +1,19 @@
-import "./ItemListContainer.css"
-export const ItemListContainer = (props) =>{
-    let {titulo,presentacion,img}=props;
+
+import "./ItemListContainer.css";
+import{Link} from "react-router-dom";
+export const ItemListContainer = () =>{
 return(
 <>
-<h1 className="tituloPresentacion">{titulo}</h1>
-<p>{presentacion}</p>
-<img src={img} alt="Florero de Ceramica"/>
+<main>
+<h1 className="tituloPresentacion">Bienvenidos amantes de la ceramica</h1>
+<p className="textoPresentacion">Este nuevo concepto está creado para personas creativas y amantes de las cosas pequeñas.</p>
+<button>SHOP NOW</button>
+<div>
+<h2>NEW ARRIVALS!!</h2>
+</div>
+</main>
 </>
+
 )
 
 }

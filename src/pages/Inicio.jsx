@@ -1,11 +1,14 @@
 import { NavBar } from "../components/NavBar/NavBar";
-function Inicio (){
-    return(
+import { Outlet } from "react-router-dom";
+
+function Inicio() {
+    return (
         <div>
             <NavBar/>
-            <h1>
-                Inicio
-            </h1>
+
+                <Outlet />
+                <footer>footer</footer>
+
         </div>
     )
 }

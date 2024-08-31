@@ -1,33 +1,38 @@
 import { CartWidget } from "./components/CartWidget";
 import {Link} from "react-router-dom";
+import "./NavBar.css"
 
 export const NavBar = () =>{
     return <>
-    <nav className="navbar navbar-expand-lg bg-white fixed-top">
+    <nav className="navbar navbar-expand-lg  fixed-top">
             <div className="container-fluid">
                 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 </button>
-                <div className="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav d-flex flex-row">
                     <li className="nav-item">
-                    
-                            <a className="nav-link" aria-current="page" href="#"><Link to="/">Inicio</Link></a>
+                            <a className="nav-link" aria-current="page"><Link to="/">Inicio</Link></a>
                         </li>
+
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="#"><Link to="/deco">Deco</Link></a>
+                            <a className="nav-link" aria-current="page"><Link to="/Productos">Productos</Link></a>
                         </li>
+
+                        <li className="nav-item">
+                            <a className="nav-link"><Link to="/combos">Combos</Link></a>
+                        </li>
+
                         <a className="navbar-brand"><Link to="/">Ceramic Lovers Club</Link></a>
+
                         <li className="nav-item">
-                            <a className="nav-link" href="#"><Link to="/cocina">Cocina</Link></a>
+                            <a className="nav-link"><Link to="/nosotros">Nosotros</Link></a>
                         </li>
+
                         <li className="nav-item">
-                            <a className="nav-link" href="#"><Link to="/nosotros">Nosotros</Link></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#"><Link to="/contacto">Contacto</Link></a>
+                            <a className="nav-link"><Link to="/contacto">Contacto</Link></a>
                         </li>
                         </ul>
                         

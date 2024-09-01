@@ -1,0 +1,64 @@
+
+.TituloProducto{
+    text-align: center;
+    margin-top: 50px;
+    background-color: #ddd;
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    color: rgb(47, 42, 47);
+}
+/* src/components/ProductosData/ProductosData.css */
+.item-list-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Tres columnas de igual tamaño */
+    gap: 16px; /* Espacio entre los elementos */
+    margin: auto; /* Centra la cuadrícula si es necesario */
+    max-width: 1000px;
+    margin-top: 50px;
+    
+     /* Ajusta el ancho máximo para centrar y alinear el contenido */
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 5px; /* Reduce el relleno para hacer las tarjetas más pequeñas */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 300px; /* Ancho máximo de la tarjeta */
+    margin: 0 auto; /* Centra la tarjeta */
+    margin-top: 200px;
+margin: 15px;
+    
+}
+
+
+
+.product-image {
+    max-width: 100%;
+    height: auto; /* Ajusta la altura de las imágenes proporcionalmente */
+    border-radius: 4px;
+}
+
+.product-title {
+    font-size: 1em; /* Tamaño de fuente más pequeño */
+    margin: 3px; /* Reduce el margen */
+}
+
+.product-marca {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .item-list-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .item-list-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+}

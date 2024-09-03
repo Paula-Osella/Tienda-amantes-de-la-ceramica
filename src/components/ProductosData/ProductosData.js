@@ -33,30 +33,14 @@ const ProductosData = [
         "src": producto4,
         "marca": "Copas de coctel"
     },
-    {
-        "id": 5,
-        "title": "Plato Margaret",
-        "src": producto5,
-        "marca": "Plato decorativo de ceramica"
-    },
+
     {
         "id": 6,
         "title": "Taza Coquette",
         "src": producto6,
         "marca": "Taza con moño"
     },
-    {
-        "id": 7,
-        "title": "Plato Corazon",
-        "src": producto7,
-        "marca": "Plato semi hondo"
-    },
-    {
-        "id": 8,
-        "title": "Florero Kiss",
-        "src": producto8,
-        "marca": "Felices las vacas"
-    },
+
     {
         "id": 9,
         "title": "Alajero Waffle one love",

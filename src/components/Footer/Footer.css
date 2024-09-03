@@ -1,0 +1,36 @@
+/* FOOTER */
+.footer__redes {
+    border-top: 1px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem;
+}
+
+.footer__redes i {
+    color: black;
+    margin-top: 5px;
+    
+}
+
+
+
+.footer__direccion {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.footer__copyright {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer{
+    background-color: rgba(107, 176, 203, 0.632);
+height: 180px;
+}

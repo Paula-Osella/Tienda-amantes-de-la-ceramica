@@ -21,3 +21,169 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+
+item list container
+
+    // Inicializa el estado con la cantidad inicial de 0 para cada producto
+    const [productQuantities, setProductQuantities] = useState(
+        ProductosData.reduce((acc, product) => {
+            acc[product.id] = 0; // Inicializa la cantidad en 0 para cada producto
+            return acc;
+        }, {})
+    );
+
+    // Manejador para incrementar la cantidad del producto
+    const handleIncrease = (id) => {
+        setProductQuantities((prevQuantities) => ({
+            ...prevQuantities,
+            [id]: prevQuantities[id] + 1
+        }));
+    };
+
+    // Manejador para decrementar la cantidad del producto
+    const handleDecrease = (id) => {
+        setProductQuantities((prevQuantities) => ({
+            ...prevQuantities,
+            [id]: Math.max(0, prevQuantities[id] - 1) // Evita que la cantidad sea negativa
+        }));
+    };
+
+    return (
+        <main>
+            <h1 className="TituloProducto">Productos</h1>
+            <div className="item-list-container">
+                {ProductosData.map(product => (
+                    <div key={product.id} className="product">
+                        <img src={product.src} alt={product.title} className="product-image" />
+                        <h3 className="product-title">{product.title}</h3>
+                        <p className="product-marca">{product.marca}</p>
+
+                        <button className="boton-compra" onClick={() => handleIncrease(product.id)}><p>+</p></button>
+                        
+                        <button className="boton-compra" onClick={() => handleDecrease(product.id)}><p>-</p></button>
+                        <span><p> {productQuantities[product.id]}</p></span>
+                    </div>
+                ))}
+            </div>
+        </main>
+    );
+
+
+
+
+    products ProductosData
+
+    const ProductosData = [
+    {
+        "id": 1,
+        "title": "Plato Coquette",
+        "src": producto1,
+        "marca": "Plato de ceramica"
+    },
+    {
+        "id": 2,
+        "title": "Jarra Rosa Acorazonada",
+        "src": producto2,
+        "marca": "Jarra de ceramica"
+    },
+    {
+        "id": 3,
+        "title": "Taza Cherry",
+        "src": producto3,
+        "marca": "Taza de ceramica blanca"
+    },
+    {
+        "id": 4,
+        "title": "Copas Ajedrez",
+        "src": producto4,
+        "marca": "Copas de coctel"
+    },
+
+    {
+        "id": 6,
+        "title": "Taza Coquette",
+        "src": producto6,
+        "marca": "Taza con moño"
+    },
+
+    {
+        "id": 9,
+        "title": "Alajero Waffle one love",
+        "src": producto9,
+        "marca": "Felices las vacas"
+    },
+];
+
+
+class itemlist:
+.TituloProducto {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #ddd;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(47, 42, 47);
+}
+
+.item-list-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin: auto;
+    width: 1500px;
+
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 190px;
+    height: 322px;
+    margin: 0 auto;
+    margin: 3px;
+
+}
+
+
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.product-title {
+    font-size: 1em;
+    margin: 3px;
+}
+
+.product-marca {
+    font-size: 0.9em;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .item-list-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .item-list-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.boton-compra{
+
+    width: 30px;
+    border-radius: 17px;
+    height: 40px;
+    background-color: rgb(160, 21, 91);
+    color: white;
+}

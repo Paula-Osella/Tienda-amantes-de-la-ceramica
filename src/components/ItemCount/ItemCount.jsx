@@ -1,31 +1,33 @@
 import "../ItemCount/ItemCount.css";
-import {useState} from "react";
+import { useState } from "react";
 
-const itemCount =({stock,initial,onAdd}) =>{
-    const  [quantity, setQuantity] =useState (0)
+const ItemCount = ({ stock, initial, onAdd }) => {
+    const [quantity, setQuantity] = useState(initial || 0); // Inicializa con el valor `initial`
 
-    const increment =()=>{
-        if(quantity < stock){
-            setQuantity(quantity+1)
+    const increment = () => {
+        if (quantity < stock) {
+            setQuantity(quantity + 1);
         }
-    }
-}
+    };
 
-const decrement = () =>{
-    if(quantity>1){
-        setQuantity(quantity-1)
-    }
-}
+    const decrement = () => {
+        if (quantity > 0) {
+            setQuantity(quantity - 1);
+        }
+    };
 
-return(
-<div className="Contador">
-    <div className="Controles">
-        <button className="Boton-Compras"onClick={decrement}>-</button>
-<h3 className="Resultado">{quantity}</h3>
-<button className="Boton-compras" onClick={increment}>+</button>
-    </div>
-    <button className="Boton-stock" onClick={()=> onAdd(quantity)} disabled={!stock}>
-        
-    </button>
-</div>
-)
+    return (
+        <div className="Contador">
+            <div className="Controles">
+                <button className="Button" onClick={decrement}>-</button>
+                <h3 className="Resultado">{quantity}</h3>
+                <button className="Button" onClick={increment}>+</button>
+            </div>
+            {/* <button className="Button" onClick={() => onAdd(quantity)} disabled={quantity === 0 || quantity > stock}>
+                Agregar al carrito
+            </button> */}
+        </div>
+    );
+};
+
+export default ItemCount;

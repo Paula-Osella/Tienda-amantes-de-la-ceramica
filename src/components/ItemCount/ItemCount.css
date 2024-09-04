@@ -1,0 +1,48 @@
+/* Contenedor principal del contador */
+.Contador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de los controles */
+.Controles {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Estilo de los botones */
+.Button {
+    background-color:rgb(160, 21, 91);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 8px;
+}
+
+.Button:hover {
+    background-color: #e6008e78; /* Lila un poco más oscuro al pasar el ratón */
+}
+
+.Button:disabled {
+    background-color: #730741; /* Lila más apagado para el estado deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Estilo del resultado del contador */
+.Resultado {
+    font-size: 1.5em;
+    margin: 0 16px;
+    color: #6a1b9a; /* Lila oscuro para el número */
+}
+

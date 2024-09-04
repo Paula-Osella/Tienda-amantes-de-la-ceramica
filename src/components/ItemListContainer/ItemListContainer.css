@@ -1,17 +1,8 @@
-.tituloPresentacion{
-
-    padding-top: 60px;
-    font-size: 25px;
+.Titulo{
+    margin-top: 60px;
+    padding: 5px;
+    font-size: 30px;
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+    background-color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-.textoPresentacion{
-
-    padding-top: 5px;
-    text-align: center;
-    font-size: 20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-

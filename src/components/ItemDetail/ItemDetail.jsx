@@ -1,25 +1,27 @@
-import ItemCount from "../ItemCount/ItemCount";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"; // Para obtener el ID del producto de la URL
+import { getProductById } from "../../components/ItemListContainer/asyncMock";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
-const ItemDetail = ({ id, name, src, precio, stock }) => {
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState(null);
+    const { id } = useParams(); // Obtiene el ID del producto de la URL
+
+    useEffect(() => {
+        getProductById(Number(id)) // Asegúrate de pasar el ID correcto
+            .then(response => {
+                setProduct(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [id]);
+
     return (
-        <article>
-            <header>
-                <h2>{name}</h2>
-            </header>
-            <picture>
-                <img src={src} alt={name} />
-            </picture>
-            <section>
-                <p>Precio: ${precio}</p>
-                <p>Stock disponible: {stock}</p>
-            </section>
-            <ItemCount 
-                initial={0} 
-                stock={stock} 
-                onAdd={(quantity) => console.log("Cantidad agregada:", quantity)}
-            />
-        </article>
+        <div className="ItemDetailContainer">
+            {product ? <ItemDetail {...product} /> : <p>Loading...</p>}
+        </div>
     );
 };
 
-export default ItemDetail;
+export default ItemDetailContainer;

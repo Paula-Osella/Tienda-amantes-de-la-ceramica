@@ -56,13 +56,14 @@ const products = [
     },
 ];
 
-export const getProducts =()=>{
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve(products)
-        },500)
-    })
-}
+export const getProducts = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Products fetched:", products); // Agrega esto para verificar los datos
+            resolve(products);
+        }, 500);
+    });
+};
 
 export const getProductById = (productId) =>{
     return new Promise ((resolve) =>{

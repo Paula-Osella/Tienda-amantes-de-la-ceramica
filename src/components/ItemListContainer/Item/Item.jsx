@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ItemCount from '../../ItemCount/ItemCount';
 import './Item.css'; 
 
-const Item = ({ id, name, src, precio, stock }) => {
-    console.log({ id, name, src, precio, stock }); // Verifica las props
-    return (
+const Item = ({ id, name, src, precio, stock, onAdd }) => {
+    const [quantity, setQuantity] = useState(0);
 
+    const handleAdd = (quantity) => {
+        setQuantity(quantity);
+        if (onAdd) {
+            onAdd(id, quantity); // Llama a la función onAdd pasada desde el componente padre
+        }
+    };
+
+    return (
         <article className="product">
             <div className="Header">
                 <h2 className="product-title">{name}</h2>
@@ -19,10 +27,15 @@ const Item = ({ id, name, src, precio, stock }) => {
                 <p className="product-marca">
                     Stock disponible: {stock}
                 </p>
-                <button className="boton-detalle">Ver detalles</button>
+                <ItemCount 
+                    stock={stock} 
+                    initial={quantity}
+                    onAdd={handleAdd}
+                />
             </section>
         </article>
     );
 };
 
 export default Item;
+

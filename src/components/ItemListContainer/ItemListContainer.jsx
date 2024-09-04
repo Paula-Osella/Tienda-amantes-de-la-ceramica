@@ -3,7 +3,7 @@ import { getProducts } from "../ItemListContainer/asyncMock";
 import ItemList from '../ItemListContainer/ItemList/ItemList';
 import './ItemListContainer.css'; 
 
-function ItemListContainer({ greeting }) { // Cambia a { greeting }
+function ItemListContainer({ greeting }) { 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -14,14 +14,20 @@ function ItemListContainer({ greeting }) { // Cambia a { greeting }
             .catch(error => {
                 console.error(error);
             });
-    }, []); // Agrega el array de dependencias vacío
+    }, []); 
+
+    const handleAddToCart = (productId, quantity) => {
+        console.log(`Producto ${productId} agregado al carrito con cantidad ${quantity}`);
+        // Aquí puedes agregar la lógica para actualizar el carrito de compras
+    };
 
     return (
         <div>
-            <h1 className="Titulo">{greeting}</h1>
-            <ItemList products={products} />
+            <h1 className="Titulo">Productos</h1>
+            <ItemList products={products} onAdd={handleAddToCart} />
         </div>
     );
 }
 
 export default ItemListContainer;
+

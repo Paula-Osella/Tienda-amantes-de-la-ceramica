@@ -1,11 +1,10 @@
-import { NavBar } from "../components/NavBar/NavBar";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import { Outlet } from "react-router-dom";
 function Inicio() {
     return (
-        <div>
-            <NavBar/>
-
-                <Outlet />
+<div>
+            
+            <Outlet />
         </div>
     )
 }

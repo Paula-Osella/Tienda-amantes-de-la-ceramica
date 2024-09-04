@@ -1,7 +1,7 @@
 import React from 'react';
-import Item from '../Item/Item'; // Verifica que la ruta sea correcta
+import Item from '../Item/Item'; // Asegúrate de que la ruta sea correcta
 
-const ItemList = ({ products }) => {
+const ItemList = ({ products, onAdd }) => {
     return (
         <div className="ListGroup">
             {products.map(prod => (
@@ -12,6 +12,7 @@ const ItemList = ({ products }) => {
                     src={prod.src}
                     precio={prod.precio}
                     stock={prod.stock}
+                    onAdd={onAdd} // Pasa la función onAdd
                 />
             ))}
         </div>

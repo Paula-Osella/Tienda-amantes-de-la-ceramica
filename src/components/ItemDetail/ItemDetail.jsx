@@ -1,27 +1,36 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // Para obtener el ID del producto de la URL
-import { getProductById } from "../../components/ItemListContainer/asyncMock";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import React, { useState } from 'react';
+import ItemCount from '../ItemCount/ItemCount'; // Asegúrate de que la ruta sea correcta
+import './ItemDetail.css'; // Asegúrate de agregar los estilos necesarios
 
-const ItemDetailContainer = () => {
-    const [product, setProduct] = useState(null);
-    const { id } = useParams(); // Obtiene el ID del producto de la URL
+const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
+    const [quantity, setQuantity] = useState(0);
 
-    useEffect(() => {
-        getProductById(Number(id)) // Asegúrate de pasar el ID correcto
-            .then(response => {
-                setProduct(response);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, [id]);
+    const handleAdd = (quantity) => {
+        setQuantity(quantity);
+        if (onAdd) {
+            onAdd(id, quantity); // Llama a la función onAdd pasada desde el componente padre
+        }
+    };
 
     return (
-        <div className="ItemDetailContainer">
-            {product ? <ItemDetail {...product} /> : <p>Loading...</p>}
+        <div className="item-detail">
+            <h1 className="item-title">{name}</h1>
+            <picture>
+                <img src={src} alt={name} className="item-image" />
+            </picture>
+            <div className="item-info">
+                <p className="item-price">Precio: ${precio}</p>
+                <p className="item-stock">Stock disponible: {stock}</p>
+                <p className="item-description">{description}</p>
+                <ItemCount 
+                    stock={stock} 
+                    initial={quantity}
+                    onAdd={handleAdd}
+                />
+            </div>
         </div>
     );
 };
 
-export default ItemDetailContainer;
+export default ItemDetail;
+

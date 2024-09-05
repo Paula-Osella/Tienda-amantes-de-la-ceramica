@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importa Link para navegación
 import ItemCount from '../../ItemCount/ItemCount';
-import './Item.css'; 
+import './Item.css';
 
 const Item = ({ id, name, src, precio, stock, onAdd }) => {
     const [quantity, setQuantity] = useState(0);
@@ -27,15 +28,15 @@ const Item = ({ id, name, src, precio, stock, onAdd }) => {
                 <p className="product-marca">
                     Stock disponible: {stock}
                 </p>
-                <ItemCount 
-                    stock={stock} 
+                <ItemCount
+                    stock={stock}
                     initial={quantity}
                     onAdd={handleAdd}
                 />
+                <button className='Boton-detalles'><Link to={`/product/${id}`} className='Detalles' >Ver detalles</Link></button>
             </section>
         </article>
     );
 };
 
 export default Item;
-

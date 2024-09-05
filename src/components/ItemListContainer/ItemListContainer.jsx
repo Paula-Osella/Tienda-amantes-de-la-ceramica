@@ -3,7 +3,7 @@ import { getProducts } from "../ItemListContainer/asyncMock";
 import ItemList from '../ItemListContainer/ItemList/ItemList';
 import './ItemListContainer.css'; 
 
-function ItemListContainer({ greeting }) { 
+function ItemListContainer({ onAddToCart }) { 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -17,6 +17,13 @@ function ItemListContainer({ greeting }) {
     }, []); 
 
     const handleAddToCart = (productId, quantity) => {
+        setProducts(prevProducts => 
+            prevProducts.map(product => 
+                product.id === productId 
+                    ? { ...product, stock: product.stock - quantity } 
+                    : product
+            )
+        );
         console.log(`Producto ${productId} agregado al carrito con cantidad ${quantity}`);
         // Aquí puedes agregar la lógica para actualizar el carrito de compras
     };
@@ -30,4 +37,3 @@ function ItemListContainer({ greeting }) {
 }
 
 export default ItemListContainer;
-

@@ -33,8 +33,9 @@
 }
 
 .Button:disabled {
-    background-color: #730741; /* Lila más apagado para el estado deshabilitado */
+    background-color: #683550; /* Lila más apagado para el estado deshabilitado */
     cursor: not-allowed;
+
 }
 
 /* Estilo del resultado del contador */
@@ -45,7 +46,6 @@
 }
 
 .Button-carrito{
-background-color: #e6008e78;
-border-radius: 5px;
-
+background-color: rgb(182, 60, 121);
+border-radius: 5px;color: white;
 }

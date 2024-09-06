@@ -22,8 +22,8 @@ const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
                 <p className="item-price">Precio: ${precio}</p>
                 <p className="item-stock">Stock disponible: {stock}</p>
                 <p className="item-description">{description}</p>
-                <ItemCount 
-                    stock={stock} 
+                <ItemCount
+                    stock={stock}
                     initial={quantity}
                     onAdd={handleAdd}
                 />

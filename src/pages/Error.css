@@ -1,0 +1,47 @@
+/* Error.css */
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 90px;
+    height: 500px;
+}
+
+.Titulo-Error {
+    font-size: 6rem;
+    font-weight: bold;
+    color:rgb(160, 21, 91);;
+}
+
+.parrafo-error {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 1.5rem;
+    color:rgb(160, 21, 91);
+}
+
+.Boton-Volver {
+    background-color:rgb(160, 21, 91);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Boton-Volver a {
+    color: white;
+    text-decoration: none;
+}
+
+.Boton-Volver:hover {
+    background-color:rgb(233, 60, 147);
+}
+
+.cuerpo main{
+    background-color: #f8d7da;
+}

@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../components/ItemListContainer/asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import './ItemDetailContainer.css'; // Asegúrate de agregar los estilos necesarios
+import './ItemDetailContainer.css'; 
 
 const ItemDetailContainer = ({ onAddToCart }) => {
     const [product, setProduct] = useState(null);
-    const { id } = useParams(); // Obtiene el ID del producto de la URL
+    const { id } = useParams(); 
 
     useEffect(() => {
-        getProductById(Number(id)) // Asegúrate de pasar el ID correcto
+        getProductById(Number(id)) 
             .then(response => {
                 setProduct(response);
             })

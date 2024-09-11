@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link para navegación
+import { Link } from 'react-router-dom';
 import ItemCount from '../../ItemCount/ItemCount';
 import './Item.css';
 
@@ -9,7 +9,7 @@ const Item = ({ id, name, src, precio, stock, onAdd }) => {
     const handleAdd = (quantity) => {
         setQuantity(quantity);
         if (onAdd) {
-            onAdd(id, quantity); // Llama a la función onAdd pasada desde el componente padre
+            onAdd(id, quantity); 
         }
     };
 

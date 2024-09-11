@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from '../Item/Item'; // Asegúrate de que la ruta sea correcta
+import Item from '../Item/Item'; 
 
 const ItemList = ({ products, onAdd }) => {
     return (

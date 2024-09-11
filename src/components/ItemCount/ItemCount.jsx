@@ -2,7 +2,7 @@ import "../ItemCount/ItemCount.css";
 import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-    const [quantity, setQuantity] = useState(initial || 0); // Inicializa con el valor `initial`
+    const [quantity, setQuantity] = useState(initial || 0); 
 
     const increment = () => {
         if (quantity < stock) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ItemCount from '../ItemCount/ItemCount'; // Asegúrate de que la ruta sea correcta
-import './ItemDetail.css'; // Asegúrate de agregar los estilos necesarios
+import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css'; 
 
 const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
     const [quantity, setQuantity] = useState(0);

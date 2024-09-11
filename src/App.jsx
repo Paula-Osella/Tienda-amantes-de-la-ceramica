@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Contacto from "./pages/Contacto";
 import Error from "./pages/Error";
-import { getProducts } from "./components/ItemListContainer/asyncMock"; // Asegúrate de importar esta función
+import { getProducts } from "./components/ItemListContainer/asyncMock"; 
 
 function App() {
     const [products, setProducts] = useState([]);

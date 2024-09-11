@@ -8,7 +8,7 @@ const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
     const handleAdd = (quantity) => {
         setQuantity(quantity);
         if (onAdd) {
-            onAdd(id, quantity); // Llama a la función onAdd pasada desde el componente padre
+            onAdd(id, quantity); 
         }
     };
 

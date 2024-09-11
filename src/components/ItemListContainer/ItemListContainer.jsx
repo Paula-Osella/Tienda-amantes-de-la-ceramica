@@ -25,7 +25,6 @@ function ItemListContainer({ onAddToCart }) {
             )
         );
         console.log(`Producto ${productId} agregado al carrito con cantidad ${quantity}`);
-        // Aquí puedes agregar la lógica para actualizar el carrito de compras
     };
 
     return (

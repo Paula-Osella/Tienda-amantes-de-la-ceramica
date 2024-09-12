@@ -1,8 +1,11 @@
-function Contacto (){
-    return(
-        <main>
-          
-        </main>
+import {Link} from "react-router-dom";
+
+function Contacto() {
+    return (
+<div>
+            
+
+        </div>
     )
 }
 

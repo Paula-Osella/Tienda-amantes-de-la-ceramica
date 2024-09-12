@@ -12,7 +12,7 @@ const ItemList = ({ products, onAdd }) => {
                     src={prod.src}
                     precio={prod.precio}
                     stock={prod.stock}
-                    onAdd={onAdd} // Pasa la función onAdd
+                    onAdd={onAdd}
                 />
             ))}
         </div>

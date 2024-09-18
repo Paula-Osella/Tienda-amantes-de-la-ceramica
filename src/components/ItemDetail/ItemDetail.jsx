@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { getProducts } from '../ItemListContainer/asyncMock';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'; 
 
-const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
+const ItemDetail = ({ id, name, src, precio, stock, description, products, setProducts }) => {
     const [quantity, setQuantity] = useState(0);
 
     const handleAdd = (quantity) => {
         setQuantity(quantity);
-        if (onAdd) {
-            onAdd(id, quantity); 
-        }
+        const updatedProducts = products.map(product => 
+            product.id === id 
+                ? { ...product, stock: product.stock - quantity } 
+                : product
+        );
+        setProducts(updatedProducts);
+        console.log(`Producto ${id} agregado al carrito con cantidad ${quantity}`);
     };
 
     return (
@@ -33,4 +38,3 @@ const ItemDetail = ({ id, name, src, precio, stock, description, onAdd }) => {
 };
 
 export default ItemDetail;
-

@@ -15,23 +15,12 @@ function App() {
         getProducts().then(response => setProducts(response));
     }, []);
 
-    const handleAddToCart = (productId, quantity) => {
-        setProducts(prevProducts => 
-            prevProducts.map(product => 
-                product.id === productId 
-                    ? { ...product, stock: product.stock - quantity } 
-                    : product
-            )
-        );
-        console.log(`Producto ${productId} agregado al carrito con cantidad ${quantity}`);
-    };
-
     return (
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route path="/" element={<ItemListContainer products={products} onAddToCart={handleAddToCart} />} />
-                <Route path="/product/:id" element={<ItemDetailContainer onAddToCart={handleAddToCart} />} />
+                <Route path="/" element={<ItemListContainer products={products} />} />
+                <Route path="/product/:id" element={<ItemDetailContainer products={products} setProducts={setProducts} />} />
                 <Route path="Contacto" element={<Contacto />} />
                 <Route path="*" element={<Error />} />
             </Routes>

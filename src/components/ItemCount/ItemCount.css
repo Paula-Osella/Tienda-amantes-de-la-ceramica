@@ -49,3 +49,8 @@
 background-color: rgb(182, 60, 121);
 border-radius: 5px;color: white;
 }
+
+.Button-carrito:hover {
+    background-color: rgb(145, 41, 93);
+}
+

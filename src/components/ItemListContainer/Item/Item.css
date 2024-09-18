@@ -50,6 +50,11 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.Boton-detalles:hover {
+    background-color: rgb(145, 41, 93);
+}
+
+
 @media (max-width: 768px) {
     .item-list-container {
         grid-template-columns: repeat(2, 1fr);

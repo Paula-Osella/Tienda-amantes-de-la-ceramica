@@ -25,9 +25,6 @@ const Item = ({ id, name, src, precio, stock, onAdd }) => {
                 <p className="product-marca">
                     Precio: ${precio}
                 </p>
-                <p className="product-marca">
-                    Stock disponible: {stock}
-                </p>
                 <ItemCount
                     stock={stock}
                     initial={quantity}

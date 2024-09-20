@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
-import { getProducts } from '../ItemListContainer/asyncMock';
+import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css'; 
+import './ItemDetail.css';
+import { CartContext } from '../../Context/CartContext';
 
-const ItemDetail = ({ id, name, src, precio, stock, description, products, setProducts }) => {
+const ItemDetail = ({ id, name, src, precio, stock, description }) => {
     const [quantity, setQuantity] = useState(0);
+
+    const { products, setProducts } = useContext(CartContext);
+
+    const handleRestar =() => {
+        quantity > 1 && setQuantity(quantity-1)
+    }
+
+    const handleSumar =()=>{
+        quantity < products.stock && setQuantity(quantity + 1)
+    }
 
     const handleAdd = (quantity) => {
         setQuantity(quantity);
-        const updatedProducts = products.map(product => 
-            product.id === id 
-                ? { ...product, stock: product.stock - quantity } 
-                : product
+        const updatedProducts = products.map(product =>
+            products.id === id
+                ? { ...products, stock: product.stock - quantity }
+                : products
         );
         setProducts(updatedProducts);
-        console.log(`Producto ${id} agregado al carrito con cantidad ${quantity}`);
+        console.log(`Producto ${id} agregado al carrito con cantidad ${quantity}, quedan ${stock} disponibles`);
     };
 
     return (

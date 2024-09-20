@@ -7,6 +7,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Error from "./pages/Error";
 import Contacto from "./pages/Contacto";
 import { getProducts } from "./components/ItemListContainer/asyncMock"; 
+import { CartContext } from "./Context/CartContext";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -16,6 +17,8 @@ function App() {
     }, []);
 
     return (
+        <div>
+            <CartContext.Provider value={{products, setProducts}}>
         <BrowserRouter>
             <NavBar />
             <Routes>
@@ -26,6 +29,8 @@ function App() {
             </Routes>
             <Footer />
         </BrowserRouter>
+        </CartContext.Provider>
+        </div>
     );
 }
 

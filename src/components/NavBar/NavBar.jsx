@@ -14,11 +14,17 @@ export const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-nav d-flex flex-row">
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page"><Link to="/">Productos</Link></a>
+                            <a className="nav-link" aria-current="page"><Link to="/">Home</Link></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" aria-current="page"><Link to="/">Deco</Link></a>
                         </li>
                         <a className="navbar-brand"><Link to="/">Ceramic Lovers Club</Link></a>
                         <li className="nav-item">
-                            <a className="nav-link"><Link to="/Contacto">Contacto</Link></a>
+                            <a className="nav-link"><Link to="/Contacto">Kitchen</Link></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link"><Link to="/Contacto">Room</Link></a>
                         </li>
                     </ul>
                     <CartWidget />

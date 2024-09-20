@@ -1,8 +1,23 @@
-.Titulo{
+.Titulo {
     margin-top: 60px;
     padding: 5px;
     font-size: 30px;
     text-align: center;
     background-color: aliceblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.Contenedor {
+    display: flex;
+    height: auto;
+    width: 100vw;
+    flex-direction: row;
+    box-shadow: 0 0 0 1px blue;
+
+}
+
+.TarjetaProducto {
+    width: 25%;
+    height: 350px;
+    box-shadow: 0 0 0 1px red;
 }

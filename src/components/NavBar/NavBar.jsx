@@ -17,17 +17,20 @@ export const NavBar = () => {
                             <a className="nav-link" aria-current="page"><Link to="/">Home</Link></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page"><Link to="/">Deco</Link></a>
+                            <a className="nav-link" aria-current="page"><Link to="category/deco">Deco</Link></a>
                         </li>
                         <a className="navbar-brand"><Link to="/">Ceramic Lovers Club</Link></a>
                         <li className="nav-item">
-                            <a className="nav-link"><Link to="/Contacto">Kitchen</Link></a>
+                            <a className="nav-link"><Link to="/category/kitchen">Kitchen</Link></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link"><Link to="/Contacto">Room</Link></a>
+                            <a className="nav-link"><Link to="/category/room">Room</Link></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link"><Link to="cart"><CartWidget /></Link></a>
                         </li>
                     </ul>
-                    <CartWidget />
+                    
                 </div>
             </div>
         </nav>

@@ -1,7 +1,14 @@
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import './ItemListContainer.css'; 
 
 function ItemListContainer() { 
+    const {categoryId} =useParams()
+    if(categoryId){
+
+    }else{
+        
+    }
     const products = [1,2,3,4,5,6,7,8]
 return(
 <div >

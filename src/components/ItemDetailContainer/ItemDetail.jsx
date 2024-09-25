@@ -1,14 +1,17 @@
 import React from 'react';
+import './ItemDetail.css'; 
 
 const ItemDetail = ({ item }) => {
     return (
-        <div>
+        <div className="ItemDetail">
             {item ? (
                 <>
-                    <h2>Name: {item.name}</h2>
-                    <p>Price: {item.price}</p>
-                    <p>Description: {item.descripcion}</p>
                     <img src={item.img} alt={item.name} />
+                    <div className="ItemDetail-content">
+                        <h2>{item.name}</h2>
+                        <p className="ItemDetail-price">Precio: ${item.price}</p>
+                        <p className="ItemDetail-description">{item.descripcion}</p>
+                    </div>
                 </>
             ) : (
                 <p>Loading...</p>
@@ -16,5 +19,4 @@ const ItemDetail = ({ item }) => {
         </div>
     );
 };
-
 export default ItemDetail;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "../ItemListContainer/Item.css"; // Sigue importando el CSS
 
 const Item = ({ item }) => {
     return (
-        <div>
+        <div className="Item">
             <h2>{item.name}</h2>
-            <p>Price: {item.price}</p>
             <img src={item.img} alt={item.name} />
-            {/* Link to the item detail page */}
-            <Link to={`/detalle/${item.id}`}>View Details</Link>
+            <p>Precio: ${item.price}</p>
+            <Link to={`/detalle/${item.id}`}>Ver Detalle</Link>
         </div>
     );
 };

@@ -7,17 +7,9 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.Contenedor {
+.Spinner {
     display: flex;
-    height: auto;
-    width: 100vw;
-    flex-direction: row;
-    box-shadow: 0 0 0 1px blue;
-
-}
-
-.TarjetaProducto {
-    width: 25%;
-    height: 350px;
-    box-shadow: 0 0 0 1px red;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }

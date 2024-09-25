@@ -7,11 +7,11 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function ItemListContainer() { 
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true); // Estado de carga
+    const [loading, setLoading] = useState(true); 
     const { categoryId } = useParams();
     
     useEffect(() => {
-        setLoading(true); // Inicia el estado de carga
+        setLoading(true); 
         const db = getFirestore();
         const itemCollection = collection(db, "items");
 
@@ -20,7 +20,7 @@ function ItemListContainer() {
                 setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
             })
             .finally(() => {
-                setLoading(false); // Finaliza la carga cuando los datos se hayan obtenido
+                setLoading(false); 
             });
     }, [categoryId]);  
 
@@ -29,14 +29,12 @@ function ItemListContainer() {
             <h1 className='Titulo'>Productos</h1>
             <div className='Contenedor'>
                 {loading ? (
-                    // Muestra el spinner mientras se cargan los productos
-                    <div className="d-flex justify-content-center">
+                    <div className="Spinner">
                         <Spinner animation="border" role="status">
                             <span className="visually-hidden">Cargando...</span>
                         </Spinner>
                     </div>
                 ) : (
-                    // Muestra la lista de productos cuando ya están cargados
                     <ItemList items={items} />
                 )}
             </div>   

@@ -1,5 +1,5 @@
 .Titulo {
-    margin-top: 60px;
+
     padding: 5px;
     font-size: 30px;
     text-align: center;
@@ -12,4 +12,5 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: 60px;
 }

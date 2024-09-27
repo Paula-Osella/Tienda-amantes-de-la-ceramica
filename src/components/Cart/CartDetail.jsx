@@ -1,9 +1,9 @@
 
-import CartContext from "../Context/CartContext";
+
 import {useNavigate} from "react-router-dom";
 import {getDoc, doc, getFirestore } from "firebase/firestore";
 import { Button } from "bootstrap";
-import { useContext } from 'react';
+
 
 
 

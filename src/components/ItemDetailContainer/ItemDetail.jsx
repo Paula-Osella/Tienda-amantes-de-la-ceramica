@@ -1,7 +1,16 @@
-import React from 'react';
-import './ItemDetail.css'; 
+// ItemDetail.jsx
+import React, { useState } from 'react';
+import ItemQuantitySelector from '../ItemDetailContainer/ItemQuantitySelector';
+import AddItemButton from '../ItemDetailContainer/AddItemButton ';
+import './ItemDetail.css';
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAdd }) => {
+    const [quantity, setQuantity] = useState(1);
+
+    const handleQuantityChange = (newQuantity) => {
+        setQuantity(newQuantity);
+    };
+
     return (
         <div className="ItemDetail">
             {item ? (
@@ -11,6 +20,8 @@ const ItemDetail = ({ item }) => {
                         <h2>{item.name}</h2>
                         <p className="ItemDetail-price">Precio: ${item.price}</p>
                         <p className="ItemDetail-description">{item.descripcion}</p>
+                        <ItemQuantitySelector onQuantityChange={handleQuantityChange} />
+                        <AddItemButton onAdd={() => onAdd(quantity)} quantity={quantity} />
                     </div>
                 </>
             ) : (
@@ -19,4 +30,6 @@ const ItemDetail = ({ item }) => {
         </div>
     );
 };
+
 export default ItemDetail;
+

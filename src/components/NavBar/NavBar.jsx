@@ -1,8 +1,10 @@
+
 import { CartWidget } from "./components/CartWidget";
 import "./NavBar.css"
 import {Link} from "react-router-dom";
-
 export const NavBar = () => {
+
+
     return <>
         <nav className="navbar navbar-expand-lg  fixed-top">
             <div className="container-fluid">

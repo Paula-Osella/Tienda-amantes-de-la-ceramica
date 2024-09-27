@@ -12,5 +12,6 @@ body, html {
 
 .main-content {
     flex: 1; 
+    padding: 10px; 
     padding-bottom: 80px; 
 }

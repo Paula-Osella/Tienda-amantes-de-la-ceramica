@@ -1,12 +1,27 @@
 .footer {
     background-color: #f8f9fa; 
     padding: 20px;
-    position: relative;
-    text-align: center;
-    padding: 20px; 
     text-align: center; 
-    position: relative; 
     width: 100%; 
+    margin-top: auto; 
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.scroll-top {
+    position: fixed; 
+    right: 20px;
+    bottom: 20px; 
+    padding: 10px;
+    background-color: #f177f3; 
+    color: white;
+    border: none;
+    border-radius: 150px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 35px;
 }
 
 .footer-content {
@@ -39,19 +54,7 @@
     background-color: #701062; 
 }
 
-.scroll-top {
-    position: absolute;
-    right: 20px;
-    bottom: 50px;
-    padding: 10px;
-    background-color: #f177f3; 
-    color: white;
-    border: none;
-    border-radius: 150px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 35px;
-}
+
 
 .scroll-top:hover {
     background-color: #aa2ac4; 

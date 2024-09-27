@@ -6,22 +6,23 @@ import { NavBar } from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Error from "./pages/Error";
-import { CartContext } from "./Context/CartContext";
+import  CartContext  from "./components/Context/CartContext";
 import { CartWidget } from "./components/NavBar/components/CartWidget";
+import Cart from "./components/Cart/Cart";
 import './App.css'; 
 
 function App() {
     return (
-        <div className="wrapper"> {/* Clase para aplicar flexbox */}
+        <div className="wrapper">
             <BrowserRouter>
                 <NavBar />
-                <div className="main-content"> {/* Contenedor para que el contenido crezca */}
+                <div className="main-content"> 
                     <Routes>
                         <Route path="/" element={<ItemListContainer />} />
                         <Route path="/category/:categoryId" element={<ItemListContainer />} />
                         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
                         <Route path="*" element={<Error />} />
-                        <Route path="/cart" element={<CartWidget />} />
+                        <Route path="/cart" element={<Cart />} />
                     </Routes>
                 </div>
                 <Footer />

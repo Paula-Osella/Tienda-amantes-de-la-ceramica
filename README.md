@@ -1,70 +1,85 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Tienda de Cerámica, Ceramic Lovers Club
+Video de la pagina: https://www.youtube.com/watch?v=_hBpqJ-o3W0
 
-In the project directory, you can run:
+## Descripción
+Esta es una aplicación de tienda en línea donde los usuarios pueden explorar y comprar productos de cerámica. Los productos están organizados en categorías, y los usuarios pueden ver detalles específicos de cada artículo. La aplicación permite agregar productos al carrito y realizar compras de manera sencilla.
 
-### `npm start`
+## Tecnologías Usadas
+- **React**: Librería de JavaScript utilizada para construir la interfaz de usuario.
+- **Firebase**: Plataforma que proporciona almacenamiento en tiempo real y autenticación.
+- **Firestore**: Servicio de base de datos de Firebase utilizado para almacenar los productos.
+- **React Router**: Utilizado para manejar la navegación en la aplicación.
+- **React Bootstrap**: Para el diseño y la estilización de la interfaz.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Librerías Utilizadas
+- **react-router-dom**: Para la gestión de rutas y navegación.
+- **react-bootstrap**: Para componentes y estilos de Bootstrap.
+- **firebase**: Para la conexión y uso de Firestore.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
+Para descargar el repositorio y hacer funcionar la aplicación, sigue estos pasos:
 
-### `npm test`
+1. Clona el repositorio en tu máquina local:
+   ```bash
+   git clone https://github.com/tu_usuario/nombre_del_repositorio.git
+2.Navega al directorio del proyecto:
+cd proyecto-react-osella
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Instala las dependencias necesarias:
+   npm install
+4.Crea un archivo .env y configura las variables de entorno necesarias para Firebase.
+5.Inicia la aplicación: npm start
 
-### `npm run build`
+Requisitos
+Node.js y npm instalados en tu máquina.
+Una cuenta de Firebase y un proyecto configurado para usar Firestore.
+Uso
+Una vez que la aplicación esté en funcionamiento, podrás acceder a ella desde tu navegador en http://localhost:3000. Desde ahí, podrás navegar por las categorías de productos de cerámica, ver detalles de cada uno y agregar artículos al carrito.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Estructura de la Aplicación
+App:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Componente principal que envuelve la aplicación con BrowserRouter y CartContextProvider.
+Define las rutas de la aplicación con Routes y Route:
+"/": Muestra la lista de productos (ItemListContainer).
+"/category/:categoryId": Muestra productos filtrados por categoría.
+"/detalle/:id": Muestra el detalle de un producto específico (ItemDetailContainer).
+"*": Página de error (Error).
+"/cart": Muestra el carrito de compras (Cart).
+ItemListContainer:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Obtiene los datos de productos desde Firebase y maneja la lógica de carga.
+Usa useParams para filtrar productos por categoría.
+Renderiza ItemList con los productos obtenidos.
+ItemList:
 
-### `npm run eject`
+Componente presentacional que itera sobre los productos y renderiza un componente Item para cada uno.
+Item:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Componente que muestra la información de un producto individual, incluyendo su imagen, nombre, precio y una descripción.
+Incluye un selector de cantidad (ItemQuantitySelector) y un botón para agregar al carrito (AddItemButton).
+ItemDetailContainer:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Obtiene los detalles de un producto específico a través de su ID.
+Usa useParams para acceder al ID del producto.
+Muestra un Spinner mientras se cargan los datos y luego renderiza ItemDetail.
+ItemQuantitySelector:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Permite al usuario seleccionar la cantidad de un producto.
+Contiene botones para incrementar y decrementar la cantidad.
+AddItemButton:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Botón para agregar el producto seleccionado al carrito.
+Footer:
 
-## Learn More
+Contiene un formulario para suscribirse al newsletter.
+Un botón para desplazarse hacia arriba de la página.
+CartContext y CartContextProvider:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Crea un contexto para gestionar el estado del carrito.
+Proporciona funciones para agregar, eliminar y calcular el total de productos en el carrito.
+Brief:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Muestra un resumen de la compra con el ID de la orden, detalles de los productos comprados y el total.

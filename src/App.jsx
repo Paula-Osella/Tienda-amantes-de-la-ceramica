@@ -9,12 +9,12 @@ import Error from "./pages/Error";
 import { CartWidget } from "./components/NavBar/components/CartWidget";
 import Cart from "./components/Cart/Cart";
 import './App.css';
-
+import CartContextProvider from "./components/Context/CartContextProvider";
 function App() {
     return (
 
         <div className="wrapper">
-        
+        <CartContextProvider>
                 <BrowserRouter>
                     <NavBar />
                     <div className="main-content">
@@ -25,10 +25,11 @@ function App() {
                             <Route path="*" element={<Error />} />
                             <Route path="/cart" element={<Cart />} />
                         </Routes>
+                        
                     </div>
                     <Footer />
                 </BrowserRouter>
-
+                </CartContextProvider>
         </div>
     );
 }

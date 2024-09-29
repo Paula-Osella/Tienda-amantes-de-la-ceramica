@@ -2,19 +2,18 @@
 import './ItemDetailContainer.css';
 import ItemDetail from "./ItemDetail";
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext  } from 'react';
 import { getDoc, doc, getFirestore } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
-
+import CartContext from '../Context/CartContext';
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
+    const {addItem}=useContext(CartContext);
 
     const onAdd = (q) => {
-        console.log({
-            q, item
-        });
+        addItem(item,q)
     };
 
     useEffect(() => {

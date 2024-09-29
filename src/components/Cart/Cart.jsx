@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CartDetail from "./CartDetail"; // Asegúrate de que este componente esté implementado
 import Form from "../Form/Form";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import "./Cart.css";
+import CartContext from "../Context/CartContext";
 
 const Cart = () => {
+
+
     const [buyer, setBuyer] = useState({
         nombre: "",
         email: "",
-        provincia: "",
-        localidad: "",
-        calle: "",
         numero: "",
     });
 
     const [error, setError] = useState({});
-
+const {cart, removeItem} = useContext(CartContext)
     const handleChange = (e) => {
         setBuyer({
             ...buyer,
@@ -33,14 +33,8 @@ const Cart = () => {
         if (!buyer.email) {
             localError.email = "El email es obligatorio.";
         }
-        if (!buyer.provincia) {
-            localError.provincia = "Colocar la provincia es obligatorio.";
-        }
-        if (!buyer.calle) {
-            localError.calle = "Colocar la calle es obligatorio.";
-        }
         if (!buyer.numero) {
-            localError.numero = "Colocar el número de tu calle es obligatorio.";
+            localError.numero = "Colocar su numero de celular.";
         }
 
         if (Object.keys(localError).length === 0) {
@@ -66,6 +60,16 @@ const Cart = () => {
 
     return (
         <div className="cart-container">
+            {cart.map((el)=>(
+                <div className="cart-card" key={el.id}>
+<div>
+    <p>Producto: {el.name}</p>
+    <p>Cantidad: {el.quantity}</p>
+</div>
+<img src={el.img}className="cart-image" alt={el.img}/>
+<button onClick={()=> removeItem(el.id)}>Eliminar</button>
+                </div>
+            ))}
 
             <CartDetail /> 
             <Form handleChange={handleChange} submit={submit} formData={buyer} error={error} />

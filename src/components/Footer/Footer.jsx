@@ -2,16 +2,15 @@ import { Link } from "react-router-dom";
  import "../Footer/Footer.css";
 
 import React, { useState } from 'react';
-import './Footer.css'; // Asegúrate de crear este archivo para los estilos.
+import './Footer.css'; 
 
 const Footer = () => {
     const [email, setEmail] = useState('');
 
     const handleSubscribe = (e) => {
         e.preventDefault();
-        // Aquí puedes agregar la lógica para manejar la suscripción al newsletter.
         console.log(`Subscribed with email: ${email}`);
-        setEmail(''); // Limpiar el input después de suscribirse.
+        setEmail(''); 
     };
 
     return (

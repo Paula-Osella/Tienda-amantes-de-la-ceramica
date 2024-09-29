@@ -1,4 +1,3 @@
-// ItemDetail.jsx
 import React, { useState } from 'react';
 import ItemQuantitySelector from '../ItemDetailContainer/ItemQuantitySelector';
 import AddItemButton from '../ItemDetailContainer/AddItemButton ';

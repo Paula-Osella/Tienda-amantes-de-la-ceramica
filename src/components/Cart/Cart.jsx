@@ -1,21 +1,22 @@
 import React, { useState, useContext } from "react";
-import CartDetail from "./CartDetail"; // Asegúrate de que este componente esté implementado
 import Form from "../Form/Form";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import "./Cart.css";
 import CartContext from "../Context/CartContext";
+import Brief from "../Checkout/Brief";
 
 const Cart = () => {
-
-
+    const { cart, removeItem, clear, calculateTotal } = useContext(CartContext);
     const [buyer, setBuyer] = useState({
         nombre: "",
         email: "",
         numero: "",
     });
-
     const [error, setError] = useState({});
-const {cart, removeItem} = useContext(CartContext)
+    const [orderId, setOrderId] = useState(null);
+    const [orderItems, setOrderItems] = useState([]);
+    const [orderTotal, setOrderTotal] = useState(0);
+
     const handleChange = (e) => {
         setBuyer({
             ...buyer,
@@ -47,34 +48,56 @@ const {cart, removeItem} = useContext(CartContext)
     const addToCart = () => {
         const db = getFirestore();
         const orderCollection = collection(db, "orders");
+
+
         const purchase = {
             buyer,
-            items: [], 
-            total: 200, 
+            items: cart,
+            total: calculateTotal(),
             date: new Date(),
         };
+
         addDoc(orderCollection, purchase)
-            .then((res) => console.log(res.id))
+            .then((res) => {
+                setOrderId(res.id);
+                setOrderItems(cart);
+                setOrderTotal(calculateTotal());
+                clear();
+            })
             .catch((err) => console.log(err));
     };
 
     return (
         <div className="cart-container">
-            {cart.map((el)=>(
-                <div className="cart-card" key={el.id}>
-<div>
-    <p>Producto: {el.name}</p>
-    <p>Cantidad: {el.quantity}</p>
-</div>
-<img src={el.img}className="cart-image" alt={el.img}/>
-<button onClick={()=> removeItem(el.id)}>Eliminar</button>
-                </div>
-            ))}
-
-            <CartDetail /> 
-            <Form handleChange={handleChange} submit={submit} formData={buyer} error={error} />
+            {cart.length === 0 && !orderId ? (
+                <p className="parrafo-carrito">Tu carrito está vacío</p>
+            ) : (
+                <>
+                    {!orderId ? (
+                        <>
+                            {cart.map((el) => (
+                                <div className="cart-card" key={el.id}>
+                                    <div>
+                                        <p>Producto: {el.name}</p>
+                                        <p>Cantidad: {el.quantity}</p>
+                                        <p>Precio: ${el.price}</p> 
+                                    </div>
+                                    <img src={el.img} className="cart-image" alt={el.name} />
+                                    <button onClick={() => removeItem(el.id)}>Eliminar</button>
+                                </div>
+                            ))}
+    
+                            <h4>Total del carrito: ${calculateTotal()}</h4> 
+    
+                            <Form handleChange={handleChange} submit={submit} formData={buyer} error={error} />
+                        </>
+                    ) : (
+                        <Brief orderId={orderId} orderItems={orderItems} orderTotal={orderTotal} />
+                    )}
+                </>
+            )}
         </div>
     );
-};
+}
 
 export default Cart;

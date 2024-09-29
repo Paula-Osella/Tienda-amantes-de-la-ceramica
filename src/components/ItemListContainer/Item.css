@@ -40,7 +40,7 @@
 .Item a {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: inline-block;
-    background-color: #c071b6;
+    background-color: #e46eb5;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -49,5 +49,5 @@
 }
 
 .Item a:hover {
-    background-color: #e76eef;
+    background-color: #dc4596;
 }

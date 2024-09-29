@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import ItemQuantitySelector from "../ItemDetailContainer/ItemQuantitySelector";
 import "../ItemDetailContainer/AddItemButton.css";
 
 const AddItemButton = ({ onAdd, quantity }) => {

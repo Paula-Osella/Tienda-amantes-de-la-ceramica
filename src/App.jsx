@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-import { ToastContainer } from 'react-toastify';
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Error from "./pages/Error";
-import { CartWidget } from "./components/NavBar/components/CartWidget";
+
 import Cart from "./components/Cart/Cart";
 import './App.css';
 import CartContextProvider from "./components/Context/CartContextProvider";
@@ -14,7 +13,7 @@ function App() {
     return (
 
         <div className="wrapper">
-        <CartContextProvider>
+            <CartContextProvider>
                 <BrowserRouter>
                     <NavBar />
                     <div className="main-content">
@@ -25,11 +24,11 @@ function App() {
                             <Route path="*" element={<Error />} />
                             <Route path="/cart" element={<Cart />} />
                         </Routes>
-                        
+
                     </div>
                     <Footer />
                 </BrowserRouter>
-                </CartContextProvider>
+            </CartContextProvider>
         </div>
     );
 }

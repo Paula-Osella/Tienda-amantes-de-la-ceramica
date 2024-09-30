@@ -2,6 +2,7 @@
 
 # Tienda de Cerámica, Ceramic Lovers Club
 Video de la pagina: https://www.youtube.com/watch?v=_hBpqJ-o3W0
+Link de la tienda subido a Netlifly: https://ceramicc-lovers-club.netlify.app/
 
 ## Descripción
 Esta es una aplicación de tienda en línea donde los usuarios pueden explorar y comprar productos de cerámica. Los productos están organizados en categorías, y los usuarios pueden ver detalles específicos de cada artículo. La aplicación permite agregar productos al carrito y realizar compras de manera sencilla.

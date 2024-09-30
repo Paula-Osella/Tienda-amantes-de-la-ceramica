@@ -87,7 +87,7 @@ const Cart = () => {
                                 </div>
                             ))}
     
-                            <h4>Total del carrito: ${calculateTotal()}</h4> 
+                            <h4>Total: ${calculateTotal()}</h4> 
     
                             <Form handleChange={handleChange} submit={submit} formData={buyer} error={error} />
                         </>

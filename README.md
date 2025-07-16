@@ -1,8 +1,7 @@
 # Tienda de Cerámica: Ceramic Lovers Club 🏺✨
 
 
-## 🔗 Enlaces Rápidos
-
+## 🔗 Enlaces
 * **Video Demostrativo**: [Ver en YouTube](https://www.youtube.com/watch?v=_hBpqJ-o3W0) 🎬
 * **Tienda en Línea (Netlify)**: [Visitar Ceramic Lovers Club](https://ceramicc-lovers-club.netlify.app/) 🛍️
 * **Repositorio en GitHub**: [Ver Código Fuente](https://github.com/Paula-Osella/Tienda-amantes-de-la-ceramica) 💻

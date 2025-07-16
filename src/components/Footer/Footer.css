@@ -1,45 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 10px;
+    padding-top: var(--app-navbar-height);
+    padding-bottom: 80px;
+}
+
+:root {
+    --color-primary: #FF69B4;
+    --color-primary-dark: #C64E8C;
+    --color-secondary: #87CEEB;
+    --color-secondary-dark: #5BACE2;
+
+    --color-bg-light-blue: #ADD8E6;
+
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-text-gray: #666666;
+    --color-text-price: #E74C3C;
+
+    --color-bg-light: #F8F8F8;
+    --color-bg-dark: #2C3E50;
+    --color-bg-card: #ffffff;
+    --color-border-card: #E0E0E0;
+    --color-border-input: #D1D1D1;
+    --color-bg-detail: #F0F2F5;
+
+    --color-shadow-light: rgba(0, 0, 0, 0.08);
+    --color-shadow-dark: rgba(0, 0, 0, 0.15);
+
+    --font-family-headings: 'Playfair Display', serif;
+    --font-family-body: 'Montserrat', sans-serif;
+
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+    --spacing-xxxl: 64px;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+
+    --transition-speed: 0.3s;
+
+    --app-navbar-height: 60px;
+    --app-footer-height: 100px;
+}
+
+body {
+    font-family: var(--font-family-body);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: var(--color-bg-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    font-family: var(--font-family-body);
+    color: var(--color-text-gray);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.base-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 2px 5px var(--color-shadow-light);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.base-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-shadow-dark);
+}
+
+.primary-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.primary-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--color-secondary-dark);
+    border: 1px solid var(--color-secondary-dark);
+}
+
+.secondary-button:hover {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    transform: translateY(-1px);
+}
+
+.base-button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.base-button:disabled:hover {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
 .footer {
-    background-color: var(--color-bg-light-blue); /* Usa el mismo color del navbar para coherencia */
-    padding: var(--spacing-xl) var(--spacing-md); /* Más padding para espacio */
+    background-color: var(--color-bg-light-blue);
+    padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
     width: 100%;
     margin-top: auto;
-    color: var(--color-text-light); /* Texto blanco/claro en el footer */
+    color: var(--color-text-light);
     font-family: var(--font-family-body);
-    box-shadow: 0 -2px 10px var(--color-shadow-light); /* Sombra en la parte superior */
-    padding-bottom: calc(var(--spacing-xl) + 70px); /* Espacio extra para el scroll-top button */
-    position: relative; /* Para posicionar el scroll-top */
+    box-shadow: 0 -2px 10px var(--color-shadow-light);
+    padding-bottom: calc(var(--spacing-xl) + 70px);
+    position: relative;
 }
 
-/* Nuevo contenedor para el grid */
 .footer-grid-container {
     display: grid;
-    grid-template-columns: 1fr; /* Una columna por defecto para móviles */
-    gap: var(--spacing-xl); /* Espacio entre secciones */
-    max-width: 1200px; /* Limitar el ancho máximo del contenido */
-    margin: 0 auto var(--spacing-xl) auto; /* Margen automático para centrar y espacio inferior */
-    text-align: left; /* Alinear el texto de las secciones a la izquierda */
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-xl) auto;
+    text-align: left;
 }
 
-/* Estilos comunes para las secciones del footer */
 .footer-section {
     padding: var(--spacing-md);
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para cada sección */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
 }
 
 .footer-section h2,
 .footer-section h3 {
     font-family: var(--font-family-headings);
-    font-size: 1.5rem; /* Un poco más pequeño que el título principal del newsletter */
+    font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
     color: var(--color-text-light);
-    text-align: center; /* Centrar títulos de sección */
+    text-align: center;
 }
 
-/* SECCIÓN NEWSLETTER - Ajustes */
 .newsletter-section {
-    /* Mantener estilos específicos, pero basados en variables */
+    
 }
 
 .newsletter-form {
@@ -49,7 +202,7 @@
     gap: var(--spacing-md);
     flex-wrap: wrap;
     max-width: 500px;
-    margin: 0 auto; /* Centrar formulario */
+    margin: 0 auto;
 }
 
 .newsletter-input {
@@ -78,63 +231,60 @@
     padding: 10px 25px;
 }
 
-/* SECCIÓN REDES SOCIALES */
 .social-media-section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar contenido de la sección */
+    align-items: center;
 }
 
 .social-icons {
     display: flex;
-    gap: var(--spacing-lg); /* Espacio entre iconos */
+    gap: var(--spacing-lg);
     margin-top: var(--spacing-sm);
 }
 
 .social-icons a {
-    color: var(--color-text-light); /* Color del icono */
+    color: var(--color-text-light);
     transition: color 0.3s ease, transform 0.2s ease;
-    display: flex; /* Para centrar el SVG */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .social-icons a svg {
-    width: 32px; /* Tamaño más grande para los iconos */
+    width: 32px;
     height: 32px;
-    fill: currentColor; /* Asegura que el SVG use el color del enlace */
+    fill: currentColor;
 }
 
 .social-icons a:hover {
-    color: var(--color-primary); /* Cambia al color rosa principal */
-    transform: translateY(-3px); /* Pequeño efecto de elevación */
+    color: var(--color-primary);
+    transform: translateY(-3px);
 }
 
-/* SECCIÓN MAPA */
 .map-section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar contenido de la sección */
+    align-items: center;
 }
 
 .map-container {
     width: 100%;
-    max-width: 400px; /* Limitar el ancho máximo del mapa */
+    max-width: 400px;
     border-radius: 8px;
-    overflow: hidden; /* Asegura que el iframe no se salga de los bordes */
-    box-shadow: 0 4px 15px var(--color-shadow-dark); /* Sombra para el mapa */
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--color-shadow-dark);
 }
 
 .map-container iframe {
-    border: none; /* Eliminar el borde del iframe por defecto */
-    width: 100%; /* Asegura que el iframe ocupe todo el contenedor */
-    height: 200px; /* Altura fija para el mapa */
+    border: none;
+    width: 100%;
+    height: 200px;
 }
 
 
-/* BOTÓN SCROLL TOP - Se mantiene igual, pero aseguramos posicionamiento */
 .scroll-top {
-    position: absolute; /* Cambiar a absolute dentro del footer */
+    position: absolute;
     right: var(--spacing-lg);
     bottom: var(--spacing-lg);
     padding: var(--spacing-sm);
@@ -142,15 +292,15 @@
     color: var(--color-text-light);
     border: none;
     border-radius: 50%;
-    width: 55px; /* Un poco más grande */
+    width: 55px;
     height: 55px;
-    font-size: 2.2rem; /* Tamaño de la flecha */
+    font-size: 2.2rem;
     line-height: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px var(--color-shadow-light);
-    z-index: 100; /* Asegurar que esté por encima del contenido del footer */
+    z-index: 100;
 }
 
 .scroll-top:hover {
@@ -160,21 +310,20 @@
 }
 
 
-/* --- Media Queries para el Footer Responsivo (Escritorio) --- */
 @media (min-width: 768px) {
     .footer-grid-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
-        text-align: center; /* Centrar el texto en las columnas */
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
     }
 
     .newsletter-section h2,
     .social-media-section h3,
     .map-section h3 {
-        text-align: center; /* Centrar títulos de sección en desktop */
+        text-align: center;
     }
 
     .newsletter-form {
-        flex-direction: row; /* Volver a fila en desktop */
+        flex-direction: row;
         margin: 0 auto;
     }
     .newsletter-input {
@@ -183,7 +332,6 @@
     }
 }
 
-/* Ajustes para pantallas aún más grandes */
 @media (min-width: 1024px) {
     .footer-grid-container {
         gap: var(--spacing-xl);

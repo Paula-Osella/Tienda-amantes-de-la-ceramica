@@ -1,108 +1,107 @@
-/* src/components/Item/Item.css */
-/* Tu clase principal de Item */
+
 .Item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 250px;
-    margin: var(--spacing-sm); /* Usar variable de espaciado */
-    padding: var(--spacing-md); /* Usar variable de espaciado */
-    border: 1px solid var(--color-border-card); /* Usar variable de color */
-    border-radius: var(--border-radius-lg); /* Usar variable de radio de borde */
-    box-shadow: 0 4px 8px var(--color-shadow-light); /* Usar variable de sombra */
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Usar variables de transición */
-    background-color: var(--color-bg-card); /* Usar variable de color de fondo */
-    color: var(--color-text-dark); /* Color de texto predeterminado */
+    margin: var(--spacing-sm); 
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border-card); 
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 8px var(--color-shadow-light);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    background-color: var(--color-bg-card); 
+    color: var(--color-text-dark); 
     text-align: center;
-    overflow: hidden; /* Asegura que nada se salga de los bordes redondeados */
+    overflow: hidden;
 }
 
 .Item:hover {
-    transform: scale(1.05); /* Tu efecto original de escala */
-    box-shadow: 0 8px 16px var(--color-shadow-dark); /* Usar variable de sombra */
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px var(--color-shadow-dark); 
 }
 
 .Item h2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Tu fuente original */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
     font-size: 1.5rem;
-    margin: var(--spacing-xs) 0; /* Usar variable de espaciado */
+    margin: var(--spacing-xs) 0; 
     text-align: center;
-    min-height: 2.6rem; /* Para asegurar espacio para títulos de 2 líneas */
+    min-height: 2.6rem;
     color: var(--color-text-dark);
     font-weight: 600;
 }
 
 .Item img {
     width: 100%;
-    height: 200px; /* Altura fija para la imagen */
-    object-fit: cover; /* Recorta la imagen para que llene el contenedor sin distorsionarse */
-    border-radius: var(--border-radius-md); /* Usar variable de radio de borde */
-    margin-bottom: var(--spacing-md); /* Usar variable de espaciado */
-    transition: transform var(--transition-speed) ease; /* Efecto de zoom sutil en la imagen */
+    height: 200px;
+    object-fit: cover; 
+    border-radius: var(--border-radius-md); 
+    margin-bottom: var(--spacing-md); 
+    transition: transform var(--transition-speed) ease; 
 }
 
 .Item:hover img {
-    transform: scale(1.05); /* Ligerísimo zoom en la imagen al hover de la tarjeta */
+    transform: scale(1.05); 
 }
 
 .Item p {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Tu fuente original */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.2rem;
-    color: var(--color-text-price); /* Usar variable de color para el precio */
-    margin: var(--spacing-xs) 0 var(--spacing-md) 0; /* Más espacio abajo para los botones */
+    color: var(--color-text-price); 
+    margin: var(--spacing-xs) 0 var(--spacing-md) 0; 
     font-weight: 700;
 }
 
-/* Estilo para el Link (Ver Detalle) - Clase "Item a" de tu JSX */
+
 .Item a {
-    /* Combinar con tus estilos base-button secondary-button para un look consistente */
+ 
     display: inline-block;
-    background-color: var(--color-secondary); /* Azul claro */
-    color: var(--color-text-dark); /* Texto oscuro */
+    background-color: var(--color-secondary); 
+    color: var(--color-text-dark); 
     padding: 10px 20px;
     text-decoration: none;
     border-radius: var(--border-radius-md);
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    font-family: var(--font-family-body);
     font-weight: 600;
-    box-shadow: 0 2px 5px var(--color-shadow-light); /* Sombra inicial */
-    margin-bottom: var(--spacing-sm); /* Espacio antes del botón de agregar */
-    width: 90%; /* Ajustar ancho */
+    box-shadow: 0 2px 5px var(--color-shadow-light); 
+    margin-bottom: var(--spacing-sm);
+    width: 90%; 
 }
 
 .Item a:hover {
-    background-color: var(--color-secondary-dark); /* Azul oscuro al hover */
-    color: var(--color-text-light); /* Texto blanco al hover */
-    transform: translateY(-1px); /* Pequeño lift */
-    box-shadow: 0 4px 10px var(--color-shadow-dark); /* Sombra al hover */
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light); 
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 10px var(--color-shadow-dark); 
 }
 
-/* Estilo para el botón de Agregar al Carrito (add-item-button) */
-.Item .add-item-button { /* Tu clase original */
-    /* Aquí se usarán los estilos de primary-button definidos globalmente */
-    background-color: var(--color-primary); /* Rosa */
-    color: var(--color-text-light); /* Blanco */
+
+.Item .add-item-button {
+
+    background-color: var(--color-primary); 
+    color: var(--color-text-light); 
     border: none;
     border-radius: var(--border-radius-md);
     padding: 10px 15px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    margin-top: var(--spacing-sm); /* Espacio arriba del botón */
-    width: 90%; /* Ajustar ancho */
-    box-shadow: 0 2px 5px var(--color-shadow-light); /* Sombra inicial */
-    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    margin-top: var(--spacing-sm); 
+    width: 90%; 
+    box-shadow: 0 2px 5px var(--color-shadow-light); 
+    font-family: var(--font-family-body); 
     font-weight: 600;
 }
 
 .Item .add-item-button:hover {
-    background-color: var(--color-primary-dark); /* Rosa oscuro al hover */
-    transform: translateY(-2px); /* Efecto de elevación */
-    box-shadow: 0 6px 15px var(--color-shadow-dark); /* Sombra más pronunciada al hover */
+    background-color: var(--color-primary-dark); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px var(--color-shadow-dark);
 }
 
-/* Responsividad */
+
 @media (max-width: 600px) {
     .Item {
         width: 90%;

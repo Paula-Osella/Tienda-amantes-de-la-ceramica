@@ -1,45 +1,43 @@
-/* src/components/ItemDetailContainer/ItemQuantitySelector.css */
-/* Tu clase principal de ItemQuantitySelector */
-.item-quantity-selector { /* Tu clase original */
+
+.item-quantity-selector { 
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrar los botones y el número */
-    gap: var(--spacing-xs); /* Espacio entre los botones y el número */
-    margin: var(--spacing-md) 0; /* Usar variable de espaciado */
+    justify-content: center; 
+    gap: var(--spacing-xs); 
+    margin: var(--spacing-md) 0; 
 }
 
-/* Tu clase para los botones de cantidad */
-.quantity-button { /* Tu clase original */
-    background-color: var(--color-primary); /* Usar variable de color */
-    color: var(--color-text-light); /* Usar variable de color */
+
+.quantity-button { 
+    background-color: var(--color-primary);
+    color: var(--color-text-light); 
     border: none;
-    border-radius: 50%; /* Botones de cantidad redondos */
-    width: 45px; /* Ancho fijo para que sean cuadrados */
-    height: 45px; /* Altura fija para que sean cuadrados */
+    border-radius: 50%; 
+    width: 45px; 
+    height: 45px;
     cursor: pointer;
-    margin: var(--spacing-xxs); /* Usar variable de espaciado */
-    padding: 0; /* Quitar padding para centrar mejor el texto */
-    font-size: 1.5rem; /* Tamaño de fuente para los símbolos +/- */
+    margin: var(--spacing-xxs); 
+    padding: 0;
+    font-size: 1.5rem; 
     font-weight: 700;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    display: flex; /* Para centrar el texto dentro del botón */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
 .quantity-button:hover {
-    background-color: var(--color-primary-dark); /* Usar variable de color */
-    transform: scale(1.1); /* Efecto de crecimiento sutil */
+    background-color: var(--color-primary-dark);
+    transform: scale(1.1); 
 }
 
-/* Tu clase para la visualización de la cantidad (asumo que es el span sin clase en tu JSX) */
-/* Si tu span de cantidad no tiene clase, puedes apuntar a él así: */
+
 .item-quantity-selector span {
-    margin: 0 var(--spacing-xs); /* Usar variable de espaciado */
-    font-size: 1.6rem; /* Tamaño de fuente visible */
-    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    margin: 0 var(--spacing-xs);
+    font-size: 1.6rem;
+    font-family: var(--font-family-body);
     color: var(--color-text-dark);
     font-weight: 600;
-    min-width: 40px; /* Espacio para números de dos dígitos */
+    min-width: 40px;
     text-align: center;
 }

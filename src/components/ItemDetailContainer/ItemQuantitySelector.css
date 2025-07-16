@@ -1,27 +1,45 @@
-.quantity-selector {
+/* src/components/ItemDetailContainer/ItemQuantitySelector.css */
+/* Tu clase principal de ItemQuantitySelector */
+.item-quantity-selector { /* Tu clase original */
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    justify-content: center; /* Centrar los botones y el número */
+    gap: var(--spacing-xs); /* Espacio entre los botones y el número */
+    margin: var(--spacing-md) 0; /* Usar variable de espaciado */
 }
 
-.quantity-button {
-    background-color: #e46eb5;
-    color: white;
+/* Tu clase para los botones de cantidad */
+.quantity-button { /* Tu clase original */
+    background-color: var(--color-primary); /* Usar variable de color */
+    color: var(--color-text-light); /* Usar variable de color */
     border: none;
-    border-radius: 30px;
-    width: 50px;
+    border-radius: 50%; /* Botones de cantidad redondos */
+    width: 45px; /* Ancho fijo para que sean cuadrados */
+    height: 45px; /* Altura fija para que sean cuadrados */
     cursor: pointer;
-    margin: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    margin: var(--spacing-xxs); /* Usar variable de espaciado */
+    padding: 0; /* Quitar padding para centrar mejor el texto */
+    font-size: 1.5rem; /* Tamaño de fuente para los símbolos +/- */
+    font-weight: 700;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    display: flex; /* Para centrar el texto dentro del botón */
+    justify-content: center;
+    align-items: center;
 }
 
 .quantity-button:hover {
-    background-color: #dc4596;
+    background-color: var(--color-primary-dark); /* Usar variable de color */
+    transform: scale(1.1); /* Efecto de crecimiento sutil */
 }
 
-.quantity-display {
-    margin: 0 10px;
-    font-size: 20px;
+/* Tu clase para la visualización de la cantidad (asumo que es el span sin clase en tu JSX) */
+/* Si tu span de cantidad no tiene clase, puedes apuntar a él así: */
+.item-quantity-selector span {
+    margin: 0 var(--spacing-xs); /* Usar variable de espaciado */
+    font-size: 1.6rem; /* Tamaño de fuente visible */
+    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    color: var(--color-text-dark);
+    font-weight: 600;
+    min-width: 40px; /* Espacio para números de dos dígitos */
+    text-align: center;
 }

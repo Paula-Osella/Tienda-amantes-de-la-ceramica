@@ -1,61 +1,194 @@
 .footer {
-    background-color: #f8f9fa; 
-    padding: 20px;
-    text-align: center; 
-    width: 100%; 
-    margin-top: auto; 
+    background-color: var(--color-bg-light-blue); /* Usa el mismo color del navbar para coherencia */
+    padding: var(--spacing-xl) var(--spacing-md); /* Más padding para espacio */
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    color: var(--color-text-light); /* Texto blanco/claro en el footer */
+    font-family: var(--font-family-body);
+    box-shadow: 0 -2px 10px var(--color-shadow-light); /* Sombra en la parte superior */
+    padding-bottom: calc(var(--spacing-xl) + 70px); /* Espacio extra para el scroll-top button */
+    position: relative; /* Para posicionar el scroll-top */
 }
 
-.footer-content {
-    margin-bottom: 20px;
+/* Nuevo contenedor para el grid */
+.footer-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto para móviles */
+    gap: var(--spacing-xl); /* Espacio entre secciones */
+    max-width: 1200px; /* Limitar el ancho máximo del contenido */
+    margin: 0 auto var(--spacing-xl) auto; /* Margen automático para centrar y espacio inferior */
+    text-align: left; /* Alinear el texto de las secciones a la izquierda */
 }
 
-.scroll-top {
-    position: fixed; 
-    right: 20px;
-    bottom: 20px; 
-    padding: 10px;
-    background-color: #f177f3; 
-    color: white;
-    border: none;
-    border-radius: 150px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 35px;
+/* Estilos comunes para las secciones del footer */
+.footer-section {
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil para cada sección */
+    border-radius: 8px;
 }
 
-.footer-content {
-    margin-bottom: 20px;
+.footer-section h2,
+.footer-section h3 {
+    font-family: var(--font-family-headings);
+    font-size: 1.5rem; /* Un poco más pequeño que el título principal del newsletter */
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+    text-align: center; /* Centrar títulos de sección */
+}
+
+/* SECCIÓN NEWSLETTER - Ajustes */
+.newsletter-section {
+    /* Mantener estilos específicos, pero basados en variables */
 }
 
 .newsletter-form {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 0 auto; /* Centrar formulario */
 }
 
-.newsletter-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+.newsletter-input {
+    padding: 10px 15px;
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    margin-right: 0;
+    flex-grow: 1;
+    max-width: 300px;
+    font-size: 1rem;
+    background-color: var(--color-bg-card);
+    color: var(--color-text-dark);
 }
 
-.newsletter-form button {
-    padding: 10px 20px;
-    background-color: #eb85d5;
-    color: rgb(255, 255, 255);
+.newsletter-input::placeholder {
+    color: #888;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.2);
+}
+
+.newsletter-button {
+    padding: 10px 25px;
+}
+
+/* SECCIÓN REDES SOCIALES */
+.social-media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido de la sección */
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-lg); /* Espacio entre iconos */
+    margin-top: var(--spacing-sm);
+}
+
+.social-icons a {
+    color: var(--color-text-light); /* Color del icono */
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Para centrar el SVG */
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a svg {
+    width: 32px; /* Tamaño más grande para los iconos */
+    height: 32px;
+    fill: currentColor; /* Asegura que el SVG use el color del enlace */
+}
+
+.social-icons a:hover {
+    color: var(--color-primary); /* Cambia al color rosa principal */
+    transform: translateY(-3px); /* Pequeño efecto de elevación */
+}
+
+/* SECCIÓN MAPA */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido de la sección */
+}
+
+.map-container {
+    width: 100%;
+    max-width: 400px; /* Limitar el ancho máximo del mapa */
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que el iframe no se salga de los bordes */
+    box-shadow: 0 4px 15px var(--color-shadow-dark); /* Sombra para el mapa */
+}
+
+.map-container iframe {
+    border: none; /* Eliminar el borde del iframe por defecto */
+    width: 100%; /* Asegura que el iframe ocupe todo el contenedor */
+    height: 200px; /* Altura fija para el mapa */
+}
+
+
+/* BOTÓN SCROLL TOP - Se mantiene igual, pero aseguramos posicionamiento */
+.scroll-top {
+    position: absolute; /* Cambiar a absolute dentro del footer */
+    right: var(--spacing-lg);
+    bottom: var(--spacing-lg);
+    padding: var(--spacing-sm);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 50%;
+    width: 55px; /* Un poco más grande */
+    height: 55px;
+    font-size: 2.2rem; /* Tamaño de la flecha */
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px var(--color-shadow-light);
+    z-index: 100; /* Asegurar que esté por encima del contenido del footer */
 }
-
-.newsletter-form button:hover {
-    background-color: #701062; 
-}
-
-
 
 .scroll-top:hover {
-    background-color: #aa2ac4; 
+    background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--color-shadow-dark);
+}
+
+
+/* --- Media Queries para el Footer Responsivo (Escritorio) --- */
+@media (min-width: 768px) {
+    .footer-grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+        text-align: center; /* Centrar el texto en las columnas */
+    }
+
+    .newsletter-section h2,
+    .social-media-section h3,
+    .map-section h3 {
+        text-align: center; /* Centrar títulos de sección en desktop */
+    }
+
+    .newsletter-form {
+        flex-direction: row; /* Volver a fila en desktop */
+        margin: 0 auto;
+    }
+    .newsletter-input {
+        margin-right: var(--spacing-md);
+        margin-bottom: 0;
+    }
+}
+
+/* Ajustes para pantallas aún más grandes */
+@media (min-width: 1024px) {
+    .footer-grid-container {
+        gap: var(--spacing-xl);
+    }
+    .footer-section {
+        padding: var(--spacing-lg);
+    }
 }

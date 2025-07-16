@@ -1,34 +1,107 @@
-p{
+/* El p {} al inicio no parece estar relacionado con el navbar, lo eliminamos o movemos a un global */
+/* p {
     text-align: center;
-    
+} */
+
+.custom-navbar {
+    background-color: var(--color-bg-light-blue); /* Usar tu color azul actual (o cambiar a otro) */
+    height: 60px; /* Un poco más de altura para un mejor look */
+    box-shadow: 0 2px 10px var(--color-shadow-light); /* Sombra sutil para darle profundidad */
+    position: fixed; /* Asegurarse de que esté fijo en la parte superior */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
 }
 
-.navbar-nav a{
+.custom-navbar-container {
+    /* Para ajustar el ancho del contenido del navbar, si es necesario */
+    max-width: 1200px; /* Un poco más de ancho que el default de Bootstrap */
+    margin: 0 auto;
+}
+
+/* Estilo para los enlaces de navegación */
+.custom-nav-link {
     text-decoration: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(245, 245, 245);
-    padding: 15px;
-    font-size: 20px;
+    font-family: var(--font-family-body); /* Usar tu fuente definida */
+    color: var(--color-text-light); /* Color de texto blanco/claro */
+    padding: 10px 15px; /* Ajustar padding */
+    font-size: 1.1rem; /* Un poco más grande */
+    font-weight: 500; /* Un poco más de grosor */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición para hover */
+    border-radius: 4px; /* Pequeño radio para los enlaces */
+    white-space: nowrap; /* Evitar que se rompa el texto en varias líneas */
 }
 
-
-
-.navbar-brand a{
-font-size: 30px;
-padding-right: 25px;
-text-decoration: none;
-color: rgb(255, 255, 255);
+.custom-nav-link:hover {
+    color: var(--color-primary); /* Cambia a tu color rosa principal */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al hover */
 }
 
-.navbar-nav {
+/* Estilo para el "Brand" / Logo */
+.custom-navbar-brand {
+    font-family: var(--font-family-headings); /* Usar fuente para títulos */
+    font-size: 1.8rem; /* Tamaño de fuente más grande para el logo */
+    padding-right: var(--spacing-lg); /* Espacio a la derecha */
+    text-decoration: none;
+    color: var(--color-text-light); /* Color de texto blanco/claro */
+    font-weight: 700; /* Más audaz para el logo */
+}
+
+.custom-navbar-brand:hover {
+    color: var(--color-primary); /* Cambia a tu color rosa principal */
+}
+
+/* Ajustes para la lista de navegación */
+.custom-navbar-nav {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin: auto;
-    
+    /* margin: auto; Ya Bootstrap maneja esto o justify-content-end */
 }
 
-.navbar{
-    background-color: rgba(107, 176, 203, 0.632);
-height: 50px;
+/* Estilos específicos para el CartWidget y el contador */
+.custom-cart-item .custom-nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs); /* Espacio entre el icono y el número */
+    padding: 0; /* Quitar padding si CartWidget ya lo tiene interno */
+    background-color: transparent;
+    border: none;
+}
+
+.custom-cart-item .custom-nav-link:hover {
+    background-color: transparent; /* No cambia el fondo en el hover del carrito */
+    color: var(--color-primary);
+}
+
+.cart-item-count {
+    background-color: var(--color-primary); /* Fondo del contador */
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+    border-radius: 50%; /* Redondo */
+    padding: 3px 7px; /* Pequeño padding */
+    position: relative;
+    left: -5px; /* Ajustar posición si es necesario */
+    bottom: -5px;
+    line-height: 1; /* Asegurar que el número no se vea cortado */
+}
+
+/* Estilo para el icono del CartWidget */
+.custom-cart-item svg {
+    fill: var(--color-text-light); /* Color del icono */
+    width: 24px; /* Tamaño del icono */
+    height: 24px;
+    transition: fill 0.3s ease;
+}
+
+.custom-cart-item .custom-nav-link:hover svg {
+    fill: var(--color-primary); /* Cambia el color al hover */
+}
+
+/* Ajustes para el botón de hamburguesa de Bootstrap */
+.custom-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Borde claro para el botón */
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono blanco */
 }

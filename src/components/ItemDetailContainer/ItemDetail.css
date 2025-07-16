@@ -1,41 +1,102 @@
+/* src/components/ItemDetailContainer/ItemDetail.css */
+/* Tu clase principal de ItemDetail */
 .ItemDetail {
     display: flex;
-    flex-direction: row; 
-    padding: 20px;
-    max-width: 800px; 
-    margin:100px auto; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9; 
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.ItemDetail img {
-    max-width: 300px; 
-    height: auto; 
-    border-radius: 8px; 
-    margin-right: 20px; 
+    flex-direction: row; /* Imagen a la izquierda, contenido a la derecha en desktop */
+    gap: var(--spacing-xl); /* Espacio entre imagen y contenido */
+    padding: var(--spacing-xl); /* Usar variable de espaciado */
+    max-width: 1000px; /* Ancho máximo para la tarjeta de detalle */
+    width: 100%; /* Ocupa el 100% del max-width */
+    margin: 100px auto; /* Mantengo tu margen, asumo que 100px funciona con tu navbar */
+    border: 1px solid var(--color-border-card); /* Usar variable de color */
+    border-radius: var(--border-radius-lg); /* Usar variable de radio de borde */
+    box-shadow: 0 8px 25px var(--color-shadow-light); /* Usar variable de sombra */
+    background-color: var(--color-bg-card); /* Usar variable de color de fondo */
+    text-align: left; /* Alinear texto a la izquierda en desktop */
+    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    color: var(--color-text-dark); /* Color de texto predeterminado */
 }
 
+.ItemDetail img {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    width: 45%; /* La imagen ocupa el 45% del ancho */
+    max-width: 400px; /* Ancho máximo para la imagen */
+    height: auto;
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    border-radius: var(--border-radius-md); /* Usar variable de radio de borde */
+    margin-right: var(--spacing-xl); /* Usar variable de espaciado */
+    display: block; /* Eliminar espacio extra debajo de la imagen */
+}
+
+/* Tu clase para el contenedor de contenido */
 .ItemDetail-content {
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
+    flex-direction: column;
+    justify-content: flex-start; /* Alinear contenido arriba */
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
 }
 
 .ItemDetail h2 {
-    font-size: 28px; 
-    margin-bottom: 10px; 
-    color: #333; 
+    font-family: var(--font-family-headings); /* Usar fuente global si aplica */
+    font-size: 2.8rem; /* Tamaño de título más impactante */
+    margin-bottom: var(--spacing-sm); /* Usar variable de espaciado */
+    color: var(--color-text-dark);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
+/* Tu clase para el precio */
 .ItemDetail-price {
-    font-size: 22px; 
-    margin-bottom: 15px; 
+    font-size: 2.2rem; /* Precio más destacado */
+    margin-bottom: var(--spacing-lg); /* Usar variable de espaciado */
+    color: var(--color-primary); /* Resaltar el precio con el color de acento */
+    font-weight: 700;
 }
 
+/* Tu clase para la descripción */
 .ItemDetail-description {
-    font-size: 16px; 
-    margin-bottom: 20px; 
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg); /* Usar variable de espaciado */
+    color: var(--color-text-gray); /* Un gris más suave para la descripción */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 850px) {
+    .ItemDetail {
+        flex-direction: column; /* Apilar imagen y contenido en pantallas medianas */
+        align-items: center;
+        text-align: center; /* Centrar texto en modo columna */
+        padding: var(--spacing-md);
+        margin: var(--spacing-xl) auto;
+        max-width: 90%;
+    }
+    .ItemDetail img {
+        width: 80%;
+        max-width: 350px;
+        margin-right: 0; /* Eliminar margen derecho */
+        margin-bottom: var(--spacing-md); /* Añadir margen inferior */
+    }
+    .ItemDetail-content {
+        align-items: center; /* Centrar texto en modo columna */
+    }
+    .ItemDetail h2 {
+        font-size: 2.2rem;
+    }
+    .ItemDetail-price {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ItemDetail {
+        padding: var(--spacing-sm);
+    }
+    .ItemDetail h2 {
+        font-size: 1.8rem;
+    }
+    .ItemDetail-price {
+        font-size: 1.5rem;
+    }
 }

@@ -1,13 +1,47 @@
+/* src/components/ItemList/ItemList.css */
+/* Tu clase principal de ItemList */
 .ItemList {
-    margin-top: 50px;
+    margin-top: var(--spacing-xxl); /* Usar variable de espaciado */
+    margin-bottom: var(--spacing-xxl); /* Margen inferior para separación del footer */
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    gap: 20px; 
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    gap: var(--spacing-lg); /* Espaciado uniforme entre las tarjetas */
+    padding: var(--spacing-xl); /* Padding general alrededor de la lista */
+    max-width: 1300px; /* Ancho máximo para el contenedor de la lista */
+    margin-left: auto; /* Centrar el contenedor en la página */
+    margin-right: auto;
 }
 
+/* Tu estilo para .ItemList .Item - Lo mantengo aquí si lo prefieres centralizado */
 .ItemList .Item {
-    width: 250px; 
-    max-width: 300px; 
+    width: 250px;
+    max-width: 300px;
+    /* Estos estilos ya están definidos en Item.css para la clase .Item.
+       Mantenerlos aquí podría sobrescribir si hay especificidad.
+       Normalmente, no es necesario duplicar. */
+}
+
+/* Responsividad para la grilla de productos */
+@media (max-width: 1024px) {
+    .ItemList {
+        gap: var(--spacing-md); /* Menos espacio en pantallas medianas */
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .ItemList {
+        gap: var(--spacing-sm); /* Aún menos espacio en pantallas pequeñas */
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .ItemList {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+        flex-direction: column; /* Apilar tarjetas en pantallas muy pequeñas */
+        align-items: center; /* Centrar tarjetas apiladas */
+    }
 }

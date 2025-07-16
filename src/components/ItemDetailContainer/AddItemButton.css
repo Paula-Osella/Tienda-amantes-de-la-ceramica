@@ -1,16 +1,41 @@
-.add-item-button {
-    background-color: #e46eb5;
-    color: white;
+/* src/components/ItemDetailContainer/AddItemButton.css */
+/* Tu clase principal de AddItemButton */
+.add-item-button { /* Tu clase original */
+    background-color: var(--color-primary); /* Usar variable de color */
+    color: var(--color-text-light); /* Usar variable de color */
     border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    font-size: 16px;
+    border-radius: var(--border-radius-md); /* Usar variable de radio de borde */
+    padding: 12px 20px; /* Un poco más de padding para que sea más grande */
+    font-size: 1.1rem; /* Texto un poco más grande */
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 5px;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    margin-top: var(--spacing-md); /* Usar variable de espaciado */
+    width: 100%; /* Ocupar todo el ancho disponible del contenedor padre */
+    max-width: 300px; /* Limitar el ancho máximo */
+    box-shadow: 0 4px 10px var(--color-shadow-light); /* Sombra inicial */
+    font-family: var(--font-family-body); /* Usar fuente global si aplica */
+    font-weight: 600;
 }
 
 .add-item-button:hover {
-    background-color: #dc4596;
-    transform: scale(1.05); 
+    background-color: var(--color-primary-dark); /* Usar variable de color */
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 6px 15px var(--color-shadow-dark); /* Sombra más pronunciada al hover */
+}
+
+/* Estilo para el botón deshabilitado (si lo aplicas en tu JSX con 'disabled={true}') */
+.add-item-button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.add-item-button:disabled:hover {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }

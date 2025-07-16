@@ -1,17 +1,176 @@
+/* Importar fuentes de Google Fonts */
+/* Asegúrate de que estas URLs de fuentes estén en tu public/index.html también para una carga óptima */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset básico para HTML y Body */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño total */
 }
 
+/* Reset global para box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Tus clases de layout existentes */
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 .main-content {
-    flex: 1; 
-    padding: 10px; 
-    padding-bottom: 80px; 
+    flex: 1;
+    padding: 10px;
+    /* Ajusta padding-top para dejar espacio para tu navbar fijo */
+    padding-top: var(--app-navbar-height); /* Usa la variable definida abajo */
+    padding-bottom: 80px; /* Mantengo tu valor original para el footer */
+}
+
+/* --- Variables CSS Globales --- */
+:root {
+    /* Colores base para la aplicación */
+    --color-primary: #FF69B4; /* Rosa vibrante (nuevo valor) */
+    --color-primary-dark: #C64E8C; /* Rosa más oscuro para hover/active (nuevo valor) */
+    --color-secondary: #87CEEB; /* Azul cielo (nuevo color de acento secundario) */
+    --color-secondary-dark: #5BACE2; /* Azul más oscuro para hover/active (nuevo color) */
+
+    /* Tus colores para Navbar y Footer (MANTENIDOS) */
+    --color-bg-light-blue: #ADD8E6; /* Tu azul claro original para header/footer */
+
+    /* Colores de texto */
+    --color-text-light: #ffffff; /* Texto claro (ej. sobre botones/fondos oscuros) */
+    --color-text-dark: #333333; /* Texto oscuro principal */
+    --color-text-gray: #666666; /* Gris para descripciones o texto secundario (nuevo) */
+    --color-text-price: #E74C3C; /* Rojo para precios, para destacarlos (nuevo) */
+
+    /* Colores de fondo y bordes */
+    --color-bg-light: #F8F8F8; /* Fondo muy claro, casi blanco (nuevo) */
+    --color-bg-dark: #2C3E50; /* Fondo oscuro para elementos como el footer (nuevo) */
+    --color-bg-card: #ffffff; /* Fondo de tarjetas de producto (mantenido) */
+    --color-border-card: #E0E0E0; /* Borde suave para tarjetas (ajustado de #ddd) */
+    --color-border-input: #D1D1D1; /* Borde para inputs (nuevo) */
+    --color-bg-detail: #F0F2F5; /* Fondo suave para la página de detalle (nuevo) */
+
+    /* Sombras */
+    --color-shadow-light: rgba(0, 0, 0, 0.08); /* Sombra suave (ajustado) */
+    --color-shadow-dark: rgba(0, 0, 0, 0.15); /* Sombra más pronunciada (ajustado) */
+
+    /* Tipografía */
+    --font-family-headings: 'Playfair Display', serif; /* Más elegante para títulos (nuevo) */
+    --font-family-body: 'Montserrat', sans-serif; /* Moderno y legible para el cuerpo (nuevo) */
+    /* Nota: Si "Franklin Gothic Medium" es crucial, puedes añadirla como fallback o como otra variable */
+
+    /* Espaciado (un sistema de espaciado consistente) */
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px; /* Ajustado de 4px para mejor espaciado general */
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px; /* Agregado */
+    --spacing-xxxl: 64px; /* Agregado */
+
+    /* Radios de borde */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px; /* Agregado */
+
+    /* Transiciones */
+    --transition-speed: 0.3s; /* Velocidad de transición global */
+
+    /* Alturas de componentes fijos (ajusta según tus alturas reales) */
+    --app-navbar-height: 60px; /* Altura de tu navbar actual */
+    --app-footer-height: 100px; /* Altura de tu footer actual */
+}
+
+/* --- Estilos Globales Base --- */
+body {
+    font-family: var(--font-family-body);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: var(--color-bg-light); /* Fondo general de la aplicación */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    font-family: var(--font-family-body);
+    color: var(--color-text-gray); /* Color para párrafos */
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Los enlaces heredan el color del texto padre por defecto */
+}
+
+/* --- Clases de Botones Base (para reducir duplicación) --- */
+.base-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 2px 5px var(--color-shadow-light);
+    text-align: center;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+.base-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-shadow-dark);
+}
+
+.primary-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.primary-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.secondary-button {
+    background-color: transparent; /* Fondo transparente */
+    color: var(--color-secondary-dark); /* Texto del color secundario oscuro */
+    border: 1px solid var(--color-secondary-dark); /* Borde con el color secundario oscuro */
+}
+
+.secondary-button:hover {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    transform: translateY(-1px);
+}
+
+.base-button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.base-button:disabled:hover {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }

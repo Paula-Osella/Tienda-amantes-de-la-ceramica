@@ -1,6 +1,6 @@
 # Tienda de Cerámica: Ceramic Lovers Club 🏺✨
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/TU_ID_DEL_SITIO_NETLIFY/deploy-status)](https://app.netlify.com/sites/TU_NOMBRE_DE_SITIO_EN_NETLIFY/deploys) 
+(https://app.netlify.com/sites/TU_NOMBRE_DE_SITIO_EN_NETLIFY/deploys) 
 ## 🔗 Enlaces Rápidos
 
 * **Video Demostrativo**: [Ver en YouTube](https://www.youtube.com/watch?v=_hBpqJ-o3W0) 🎬
